@@ -22,3 +22,5 @@ route_report.xlsx
 # OS
 .DS_Store
 Thumbs.db
+
+*.pem
