@@ -1,0 +1,24 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environment variables
+.env
+
+# Django
+db.sqlite3
+*.log
+
+# IDE
+.idea/
+.vscode/
+
+# Generated reports
+route_report.xlsx
+
+# OS
+.DS_Store
+Thumbs.db

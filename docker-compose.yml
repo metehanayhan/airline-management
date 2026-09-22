@@ -1,0 +1,52 @@
+services:
+
+  db:
+    image: postgres:17
+    container_name: airline-db
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_DB: airline_management
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+    ports:
+      - "5432:5432"
+
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d airline_management"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+
+  web:
+    build: .
+    container_name: airline-web
+    restart: unless-stopped
+
+    volumes:
+      - .:/app
+
+    ports:
+      - "8000:8000"
+
+    environment:
+      DB_NAME: airline_management
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_HOST: db
+      DB_PORT: 5432
+      DEBUG: "True"
+      ALLOWED_HOSTS: "127.0.0.1,localhost"
+
+    depends_on:
+      db:
+        condition: service_healthy
+
+
+volumes:
+  postgres_data:
