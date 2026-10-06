@@ -1,4 +1,4 @@
-# Airline Management System - TechNarts
+# Airline Management System
 
 Bu proje, bir havayolu şirketinin uçaklarını, uçuşlarını ve yolcu rezervasyonlarını yönetebilmesi için geliştirilmiş bir **Django REST Framework backend** uygulamasıdır.
 
@@ -923,9 +923,3 @@ Authentication → Refresh Token
 ```
 
 requestini çalıştırmanız yeterlidir.
-
----
-
-## Lisans
-
-Bu proje teknik değerlendirme / case çalışması kapsamında geliştirilmiştir.
